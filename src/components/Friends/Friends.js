@@ -4,23 +4,23 @@ import './Friends.css'
 
 const Friends = () => {
       const [friends, setFriends] = useState([]);
-      useEffect(()=>{
+      useEffect(() => {
             fetch('https://jsonplaceholder.typicode.com/users')
-            .then(res=>res.json())
-            .then(data => setFriends(data));
-      },[])
+                  .then(res => res.json())
+                  .then(data => setFriends(data));
+      }, [])
       return (
             <div>
                   <h1>Friends: {friends.length}</h1>
-                 <div className="friends__container">
-                 {
-                        friends.map(friend=><Friend
-                        key={friend.id}
-                        friend={friend}
-                        ></Friend>)
-                  }
-                 </div>
-            </div>
+                  <div className="friends__container">
+                        {
+                              friends.map(friend => <Friend
+                                    key={friend.id}
+                                    friend={friend}
+                              ></Friend>)
+                        }
+                  </div>
+            </div >
       );
 };
 
